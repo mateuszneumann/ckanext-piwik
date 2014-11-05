@@ -1,0 +1,10 @@
+{% ckan_extends %}
+
+
+{%- block scripts %}
+    {{ super() }}
+    {% resource 'piwik/piwik.js' %}
+    <noscript><p><img src="{{ h.ckanext_piwik_piwik_url() }}" style="border:0;" alt="" /></p></noscript>
+{% endblock -%}
+
+
