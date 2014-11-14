@@ -54,15 +54,15 @@ Get the `src` value from the `<img>` tag in the `<noscript>` element of the piwi
 
     <noscript><p><img src="//my_remote_server/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
 
-Add the src value
+Add the src value here:
 
     ckan.piwik.url = 
 
-Add the auth token
+Add the auth token:
 
     ckan.piwik.auth_token = 
     
-Add the site id
+Add the site id:
 
     ckan.piwik.site_id = 
     
@@ -77,6 +77,7 @@ Add number of days to be counted as 'recent'
 Sample of complete configuration:
 
     ckan.piwik.url = //my_remote_server/piwik.php?idsite=1
+    ckan.piwik.auth_token = ba66be936a7ac45fd33e
     ckan.piwik.site_id = 1
     ckan.piwik.https = False
     ckan.piwik.recent_days = 14
