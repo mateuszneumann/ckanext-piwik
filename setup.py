@@ -26,5 +26,8 @@ setup(
         [ckan.plugins]
         # Add plugins here, e.g.
         piwik=ckanext.piwik.plugin:PiwikPluginClass
+
+        [paste.paster_command]
+        piwik=ckanext.piwik.commands:PiwikTrackingUpdate
     ''',
 )
