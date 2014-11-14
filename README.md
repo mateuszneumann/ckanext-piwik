@@ -56,12 +56,30 @@ Get the `src` value from the `<img>` tag in the `<noscript>` element of the piwi
 
 For the above, the configuration value would be:
 
+    ckan.piwik.url = 
+
+Add the auth token
+
+    ckan.piwik.auth_token = 
+    
+Add the site id
+
+    ckan.piwik.site_id = 
+    
+Flag whether your Piwik site uses HTTPS e.g.
+
+    ckan.piwik.https = 
+    
+Add number of days to be counted as 'recent'
+
+    ckan.piwik.recernt_days = 
+
+Sample of complete configuration options
+
     ckan.piwik.url = //my_remote_server/piwik.php?idsite=1
-
-Add the auth token:
-
-    ckan.piwik.auth_token = ba78be9485fe0af8a6512c42236775e0
-
+    ckan.piwik.site_id = 1
+    ckan.piwik.https = False
+    ckan.piwik.recent_days = 14
 
 Edit `ckanext-piwik/ckanext/piwik/fanstatic/piwik.js` and paste in the Javascript tracking code for the site:
 NOTE: only paste in the code _between_ the script tags. For example:
