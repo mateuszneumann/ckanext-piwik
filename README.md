@@ -108,6 +108,10 @@ Run the update task
 
 Run the update task daily (e.g. with cron) to refresh statistics.
 
+Current Features
++ Adds javascript tracking script to send tracking data to piwik instance
++ on Dataset search page /dataset, adds 'total' and 'recent' views to each dataset
+
 Notes
 --------
 + doesn't affect the native page tracking feature
