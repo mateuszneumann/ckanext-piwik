@@ -93,8 +93,15 @@ class PiwikTrackingUpdate(CkanCommand):
         param['date'] = piwik_date_opts['recent']
         r_recent = requests.get(piwik_url, params=param,)
 
-        if r_total.status_code == 200 and r_recent.status_code == 200:
-            total = r_total.json()[0]['nb_visits']
-            recent = r_recent.json()[0]['nb_visits']
+        total = 0
+        recent = 0
 
-            model.update_package_stats(package_name, total, recent)
+        if r_total.status_code == 200:
+            if r_total.json():
+                total = r_total.json()[0]['nb_visits']
+
+        if r_recent.status_code == 200:
+            if r_total.json():
+                recent = r_recent.json()[0]['nb_visits']
+
+        model.update_package_stats(package_name, total, recent)

@@ -1,2 +1,2 @@
-<span class="label recent" title="Views of this dataset in the last {{ recent_days }} days">{{ recent }} recent view{% if recent > 1 %}{{ 's' }}{% endif %}</span>
-<span class="label total" title="Total views of this dataset">{{ total }} total view{% if total > 1 %}{{ 's' }}{% endif %}</span>
+<span class="label recent" title="Views of this dataset in the last {{ recent_days }} days">{{ recent }} recent view{% if recent != 1 %}{{ 's' }}{% endif %}</span>
+<span class="label total" title="Total views of this dataset">{{ total }} total view{% if total != 1 %}{{ 's' }}{% endif %}</span>

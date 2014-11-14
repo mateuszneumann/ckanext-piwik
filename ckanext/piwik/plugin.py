@@ -1,10 +1,8 @@
-import json
-from pprint import pprint
 from logging import getLogger
 
 import ckan.plugins as plugins
 import ckan.lib.base as base
-import ckan.lib.helpers as helpers
+
 import pylons.config as config
 from model import setup_db, get_stats_for_package
 
@@ -15,6 +13,11 @@ def piwik_url_config():
 
 def stats_for_package(package_name):
     stats = get_stats_for_package(package_name)
+
+    #if no stats from db, give '0' counts
+    if not stats:
+        stats = {'total': 0, 'recent': 0}
+
     return base.render_snippet('piwik_snippets/piwik_stats.html',
                                total=stats['total'],
                                recent=stats['recent'],

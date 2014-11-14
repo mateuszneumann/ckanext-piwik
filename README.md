@@ -66,13 +66,13 @@ Add the site id:
 
     ckan.piwik.site_id = 
     
-Flag whether your Piwik site uses HTTPS e.g.
+Flag whether your Piwik site uses HTTPS (True or False)
 
     ckan.piwik.https = 
     
 Add number of days to be counted as 'recent'
 
-    ckan.piwik.recernt_days = 
+    ckan.piwik.recent_days = 
 
 Sample of complete configuration:
 

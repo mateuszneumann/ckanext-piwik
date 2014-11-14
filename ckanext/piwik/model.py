@@ -1,6 +1,10 @@
+import logging
+
 from sqlalchemy import Table, Column, types, orm
 from ckan.model.meta import metadata
 from ckan.model import Session
+
+log = logging.getLogger(__name__)
 
 piwik_package_table = Table('piwik_package', metadata,
                             Column('package_name', types.UnicodeText, primary_key=True),
@@ -38,9 +42,14 @@ def update_package_stats(package_name, total_visits, recent_visits):
 
 
 def get_stats_for_package(package_name):
-    q_result = Session.query(PiwikPackage).filter(PiwikPackage.package_name == package_name).first()
+
+    try:
+        q_result = Session.query(PiwikPackage).filter(PiwikPackage.package_name == package_name).first()
+    except:
+        pass
 
     if not q_result:
+        print 'not q'
         return None
 
     return {'total': q_result.total_visits,
