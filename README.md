@@ -13,7 +13,9 @@ To do:
 
 Piwik setup
 ---------------
-In Piwik, you need to configure a new site for tracking your CKAN instance
+In Piwik, you need to configure a new site for tracking your CKAN instance or get the details for an existing configured site
+
+To create new site
 
 1. Login to Piwik
 2. Click 'Admin' -> 'Settings'
