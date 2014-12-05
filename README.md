@@ -1,4 +1,4 @@
-ckanext-piwik
+ckanext-piwik (work in progress)
 ==========
 
 Adds page tracking statistics using a remote [Piwik](http://piwik.org) web analytics instance. Unlike Google Analytics which is a service that you use an account to access, Piwik is open source software which you can easily deploy on a remote server.  [Piwik setup instructions](http://piwik.org)
