@@ -9,6 +9,8 @@ import ckan.plugins.toolkit as toolkit
 import model
 
 
+log = getLogger(__name__)
+
 
 class PiwikTrackingUpdate(CkanCommand):
     """
@@ -36,8 +38,6 @@ class PiwikTrackingUpdate(CkanCommand):
 
         cmd = self.args[0]
         self._load_config()
-
-        log = getLogger(__name__)
 
         #update command
         if cmd == 'update':
@@ -111,5 +111,5 @@ class PiwikTrackingUpdate(CkanCommand):
 
         # and now update resources stats
         pkg = toolkit.get_action('package_show')(context=None, data_dict={'id': package_name})
-        log.info('Package {pkg}'.format(pkg=pkg))
+        print('Package resources {res_list}'.format(res_list=pkg['resources']))
 

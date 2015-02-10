@@ -1,6 +1,6 @@
 import logging
 
-from sqlalchemy import Table, Column, ForeignKey, types, orm
+from sqlalchemy import Table, Column, types, orm
 from ckan.model.meta import metadata
 from ckan.model import Session
 
@@ -10,12 +10,14 @@ piwik_package_table = Table('piwik_package', metadata,
                             Column('package_name', types.UnicodeText, primary_key=True),
                             Column('total_visits', types.Integer),
                             Column('recent_visits', types.Integer),
+                            extend_existing=True,
                             )
+
 piwik_resource_table = Table('piwik_resource', metadata,
-                            Column('resource_id', types.UnicodeText,
-                                   ForeignKey('resource.id')),
+                            Column('resource_id', types.UnicodeText, primary_key=True),
                             Column('total_visits', types.Integer),
                             Column('total_downloads', types.Integer),
+                            extend_existing=True,
                             )
 
 
