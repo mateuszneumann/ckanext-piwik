@@ -1,18 +1,19 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.0'
+version = '0.1'
 
 setup(
     name='ckanext-piwik',
     version=version,
-    description="",
-    long_description='''
-    ''',
+    description="Page tracking statistics using a remote Piwik instance",
+    long_description='''Adds page tracking statistics using a remote Piwik
+    web analytics instance.  Extension originally written by George
+    Sattler.''',
     classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords='',
-    author='',
-    author_email='',
+    author='George Sattler, Mateusz Neumann',
+    author_email='M.Neumann@icm.edu.pl',
     url='',
     license='',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),

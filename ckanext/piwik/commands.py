@@ -1,4 +1,4 @@
-import logging
+from logging import getLogger
 import sys
 from datetime import date, timedelta
 
@@ -7,6 +7,7 @@ import pylons.config as config
 from ckan.lib.cli import CkanCommand
 import ckan.plugins.toolkit as toolkit
 import model
+
 
 
 class PiwikTrackingUpdate(CkanCommand):
@@ -35,6 +36,8 @@ class PiwikTrackingUpdate(CkanCommand):
 
         cmd = self.args[0]
         self._load_config()
+
+        log = getLogger(__name__)
 
         #update command
         if cmd == 'update':
@@ -105,3 +108,8 @@ class PiwikTrackingUpdate(CkanCommand):
                 recent = r_recent.json()[0]['nb_visits']
 
         model.update_package_stats(package_name, total, recent)
+
+        # and now update resources stats
+        pkg = toolkit.get_action('package_show')(context=None, data_dict={'id': package_name})
+        log.info('Package {pkg}'.format(pkg=pkg))
+
