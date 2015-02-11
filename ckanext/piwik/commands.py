@@ -110,6 +110,32 @@ class PiwikTrackingUpdate(CkanCommand):
         model.update_package_stats(package_name, total, recent)
 
         # and now update resources stats
-        pkg = toolkit.get_action('package_show')(context=None, data_dict={'id': package_name})
-        print('Package resources {res_list}'.format(res_list=pkg['resources']))
+        pkg = toolkit.get_action('package_show')(context=None,
+                data_dict={'id': package_name})
+        down_re = re.compile('(https?:\/\/[^/]*)\/*(.*)')
+        for res in pkg['resources']:
+            visits = 0
+            downloads = 0
+            param = piwik_params.copy()
+            url = '/dataset/' + package_name + '/resource/' + res['id']
+            param['pageUrl'] = url
+            param['date'] = piwik_date_opts['total']
+            r_visits = requests.get(piwik_url, params=param)
+            if r_visits.status_code == 200:
+                if r_visits.json():
+                    visits = r_visits.json()[0]['nb_visits']
+            down_url = down_re.match(res['url'])
+            if down_url:
+                url = down_url.group(1) + '/' + down_url.group(2)
+                param = piwik_params.copy()
+                param['pageUrl'] = None
+                param['method'] = 'Actions.getDownload'
+                param['downloadUrl'] = url
+                param['date'] = piwik_date_opts['total']
+                r_downloads = requests.get(piwik_url, params=param)
+                downloads = 0
+                if r_downloads.status_code == 200:
+                    if r_downloads.json():
+                        downloads = r_downloads.json()[0]['nb_hits']
+            model.update_resource_stats(res['id'], visits, downloads)
 
