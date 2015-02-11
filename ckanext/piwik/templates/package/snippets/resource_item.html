@@ -15,6 +15,11 @@
         {{ h.markdown_extract(res.description, extract_length=80) }}
       {% endif %}
     </p>
+    <div id="ckanext-piwik-resource-stats">
+      {# ckanext-piwik #}
+        {{ h.ckanext_piwik_stats_for_resource(res.id) }}
+      {# ckanext-piwik #}
+    </div>
   {% endblock %}
   {% block resource_item_explore %}
   {% if not url_is_edit %}
@@ -59,8 +64,6 @@
       </li>
       {% endif %}
       {% endblock %}
-      <div id="ckanext-piwik-resource-stats">
-      </div>
     </ul>
   </div>
   {% endif %}
