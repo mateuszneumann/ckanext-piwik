@@ -133,7 +133,6 @@ class PiwikTrackingUpdate(CkanCommand):
                 param['downloadUrl'] = url
                 param['date'] = piwik_date_opts['total']
                 r_downloads = requests.get(piwik_url, params=param)
-                downloads = 0
                 if r_downloads.status_code == 200:
                     if r_downloads.json():
                         downloads = r_downloads.json()[0]['nb_hits']
