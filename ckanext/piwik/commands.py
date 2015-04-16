@@ -101,11 +101,17 @@ class PiwikTrackingUpdate(CkanCommand):
 
         if r_total.status_code == 200:
             if r_total.json():
-                total = r_total.json()[0]['nb_visits']
+                #total = r_total.json()[0]['nb_visits']
+                r_json = r_total.json()
+                if r_json[0] and r_json[0]['nb_visits']:
+                    total = r_json[0]['nb_visits']
 
         if r_recent.status_code == 200:
             if r_total.json():
-                recent = r_recent.json()[0]['nb_visits']
+                #recent = r_recent.json()[0]['nb_visits']
+                r_json = r_total.json()
+                if r_json[0] and r_json[0]['nb_visits']:
+                    recent = r_json[0]['nb_visits']
 
         model.update_package_stats(package_name, total, recent)
 
