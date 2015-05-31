@@ -21,45 +21,45 @@ msgstr ""
 
 #: ckanext/piwik/templates/package/snippets/resource_item.html:29
 msgid "Explore"
-msgstr ""
+msgstr "Przeglądaj"
 
 #: ckanext/piwik/templates/package/snippets/resource_item.html:38
 msgid "Preview"
-msgstr ""
+msgstr "Podgląd"
 
 #: ckanext/piwik/templates/package/snippets/resource_item.html:41
 msgid "More information"
-msgstr ""
+msgstr "Więcej informacji"
 
 #: ckanext/piwik/templates/package/snippets/resource_item.html:50
 msgid "Download"
-msgstr ""
+msgstr "Pobierz"
 
 #: ckanext/piwik/templates/package/snippets/resource_item.html:53
 msgid "Go to resource"
-msgstr ""
+msgstr "Przejdź do zasobu"
 
 #: ckanext/piwik/templates/package/snippets/resource_item.html:62
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 #: ckanext/piwik/templates/snippets/package_item.html:31
 msgid "Private"
-msgstr ""
+msgstr "Prywatne"
 
 #: ckanext/piwik/templates/snippets/package_item.html:40
 msgid "Draft"
-msgstr ""
+msgstr "Szkic"
 
 #: ckanext/piwik/templates/snippets/package_item.html:42
 msgid "Deleted"
-msgstr ""
+msgstr "Usunięte"
 
 #: ckanext/piwik/templates/snippets/package_item.html:50
 msgid "Popular"
-msgstr ""
+msgstr "Popularne"
 
 #: ckanext/piwik/templates/snippets/package_item.html:57
 msgid "This dataset has no description"
-msgstr ""
+msgstr "Ten zbiór danych nie ma opisu"
 
