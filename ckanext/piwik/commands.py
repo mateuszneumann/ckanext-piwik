@@ -1,4 +1,5 @@
 from logging import getLogger
+import re
 import sys
 from datetime import date, timedelta
 
@@ -84,6 +85,7 @@ class PiwikTrackingUpdate(CkanCommand):
             print 'command: {cmd} not recognised'.format(cmd=cmd)
 
     def update_package_stats(self, package_name, piwik_params, piwik_date_opts, piwik_url):
+        log.info(u'Updating package statistics based on Piwik Analytics')
 
         param = piwik_params.copy()
         param['pageUrl'] = '/dataset/' + package_name
@@ -113,6 +115,8 @@ class PiwikTrackingUpdate(CkanCommand):
                 if r_json[0] and r_json[0]['nb_visits']:
                     recent = r_json[0]['nb_visits']
 
+        log.debug(u'Updating package {} stats: total {}, recent {}'.format(package_name, total, recent))
+        #print u'Updating package {} stats: total {}, recent {}'.format(package_name, total, recent)
         model.update_package_stats(package_name, total, recent)
 
         # and now update resources stats
@@ -142,5 +146,7 @@ class PiwikTrackingUpdate(CkanCommand):
                 if r_downloads.status_code == 200:
                     if r_downloads.json():
                         downloads = r_downloads.json()[0]['nb_hits']
+            log.debug(u'Updating resource {} stats: visits {}, downloads {}'.format(res['id'], visits, downloads))
+            #print u'Updating resource {} stats: visits {}, downloads {}'.format(res['id'], visits, downloads)
             model.update_resource_stats(res['id'], visits, downloads)
 
